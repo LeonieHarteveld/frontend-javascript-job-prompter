@@ -71,7 +71,7 @@ const departments = {
     }
 }
 
-console.log(departments);
+// console.log(departments);
 
 // numberSalesEmployees = departments.marketing.numberOfEmployees
 // console.log("De afdeling Sales heeft " + numberSalesEmployees + " medewerkers")
@@ -87,7 +87,6 @@ console.log(departments);
 //
 
 
-
 const userInput = prompt("Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]");
 
 
@@ -96,37 +95,42 @@ switch (userInput) {
     case "marketing":
     case "customer-service":
 
-        console.log(userInput + " is een leuke afdeling om te werken. Er werken op dit moment " + departments[userInput].numberOfEmployees + " medewerkers.");
+        document.getElementById("role-title").textContent = `${userInput} is een leuke afdeling om te werken. Er werken op dit moment ${departments[userInput].numberOfEmployees} medewerkers.`;
 
-        console.log("Je koos " + userInput + ". " + departments[userInput].description)
+        document.getElementById("department-description").textContent = `Je koos ${userInput}. ${departments[userInput].description}`;
 
-        const JobInput = prompt("Je koos " + userInput + ". Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.\n" +
-            "0: " + departments[userInput].jobs[0].title + "\n" +
-            "1: " + departments[userInput].jobs[1].title + "\n" +
-            "2: " + departments[userInput].jobs[2].title + "\n" +
-            "3: " + departments[userInput].jobs[3].title + "\n");
+        const JobInput = prompt(`Je koos ${userInput}. Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.
+    0: ${departments[userInput].jobs[0].title}
+    1: ${departments[userInput].jobs[1].title}
+    2: ${departments[userInput].jobs[2].title}
+    3: ${departments[userInput].jobs[3].title}
+    `);
 
         switch (JobInput) {
             case "0":
-                console.log("Je koos " + departments[userInput].jobs[0].title + ". Een uitdagende rol! " + departments[userInput].jobs[0].description);
+                document.getElementById("role-description").textContent = `Je koos ${departments[userInput].jobs[0].title}. Een uitdagende rol! ${departments[userInput].jobs[0].description} `;
                 break;
             case "1":
-                console.log("Je koos " + departments[userInput].jobs[1].title + ". Een uitdagende rol! " + departments[userInput].jobs[1].description);
+                document.getElementById("role-description").textContent = `Je koos ${departments[userInput].jobs[1].title}. Een uitdagende rol! ${departments[userInput].jobs[1].description} `;
                 break;
             case "2":
-                console.log("Je koos " + departments[userInput].jobs[2].title + ". Een uitdagende rol! " + departments[userInput].jobs[2].description);
+                document.getElementById("role-description").textContent = `Je koos ${departments[userInput].jobs[2].title}. Een uitdagende rol! ${departments[userInput].jobs[2].description} `;
                 break;
             case "3":
-                console.log("Je koos " + departments[userInput].jobs[3].title + ". Een uitdagende rol! " + departments[userInput].jobs[3].description);
+                document.getElementById("role-description").textContent = `Je koos ${departments[userInput].jobs[3].title}. Een uitdagende rol! ${departments[userInput].jobs[3].description} `;
                 break;
-
             default:
-                console.error("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.")
+                document.getElementById("error-message").textContent =
+                    "Ongeldige functiekeuze. Probeer het opnieuw door de pagina te verversen.";
         }
         break;
 
     default:
-        console.error("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.")
+        document.getElementById("error-message").textContent =
+            "Ongeldige afdelingskeuze. Probeer het opnieuw door de pagina te verversen.";
 }
 
 
+// document.getElementById('role-title').textContent = 'Leonie';
+// document.getElementById('department-description').textContent = 'Pizza';
+// document.getElementById('role-description').textContent = 'People';
