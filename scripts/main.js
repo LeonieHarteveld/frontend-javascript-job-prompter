@@ -87,7 +87,7 @@ const departments = {
 //
 
 
-const userInput = prompt("Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]");
+const userInput = prompt("Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]").trim();
 
 
 switch (userInput) {
@@ -104,7 +104,7 @@ switch (userInput) {
     1: ${departments[userInput].jobs[1].title}
     2: ${departments[userInput].jobs[2].title}
     3: ${departments[userInput].jobs[3].title}
-    `);
+    `).trim();
 
         switch (JobInput) {
             case "0":
